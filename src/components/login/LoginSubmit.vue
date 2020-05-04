@@ -51,12 +51,6 @@ export default {
           background:'green',
           duration: 1000
         })
-          this.Email='',
-          this.LastName='',
-          this.FirstName='',
-          this.Pass='',
-          this.Repass='',
-          this.Phonenum=''
     },
     signin_success(){
           this.$notify({
