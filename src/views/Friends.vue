@@ -1,6 +1,6 @@
 <template>
   <div class="address_book">
-    <Header title="通讯录" btn_icon="user-plus" />
+    <Header title="通讯录" btn_icon="user-plus" @rightClick="add" />
     <div class="container">
       <!-- 上面 搜索框 -->
       <div class="search_wrap">
@@ -9,62 +9,103 @@
           <input type="text" placeholder="搜索" v-model="search_value" />
         </div>
       </div>
-      <!-- 中间 -->
-      <div class="content_wrap">
-        <Cell
-          @click="cellClick(friend)"
-          v-for="(friend) in friendsList"
-          :key="friend._id"
-          :user="friend"
-        />
+      <div v-show="list_show">
+        <!-- 中间 -->
+        <div class="content_wrap">
+          <Cell
+            @click="cellClick(friend)"
+            v-for="(friend,index) in friendsList"
+            :key="index"
+            :user="friend"
+          />
+        </div>
+        <!-- 下面 -->
+        <div class="count_wrap">
+          <span>{{friendsList.length}}位联系人</span>
+        </div>
       </div>
-      <!-- 下面 -->
-      <div class="count_wrap">
-        <span>{{friendsList.length}}位联系人</span>
-      </div>
+      
     </div>
+    <Button class="btn_wrap" @click="confirm" v-show ="bt_show">发送请求</Button>
   </div>
 </template>
 <script>
 import Header from "../components/privilegeManager/Header";
 import Cell from "../components/privilegeManager/UserCell";
+import Button from "../components/privilegeManager/YButton";
+
 export default {
   name: "contacts",
   data() {
     return {
+      list_show: true, //好友列表是否显示，当加好友时不显示
+      bt_show:false, //加好友时按钮显示
       friendsList: [
         {
           name: "lsafjlfa",
-          _id: 1,
           email: "123@163.com",
-          data: "2019-4-1"
+          data: "2019-4-1",
+          phoneNum: "18510782131"
         },
         {
           name: "lifnanf",
-          _id: 2,
           email: "123@163.com",
-          data: "2019-4-1"
+          data: "2019-4-1",
+          phoneNum: "18510782131"
         },
         {
           name: "lfalkm",
-          _id: 3,
           email: "123@163.com",
-          data: "2019-4-1"
+          data: "2019-4-1",
+          phoneNum: "18510782131"
         }
       ],
-      allFriends: [],
+      allFriends: [
+        {
+          name: "lsafjlfa",
+          email: "123@163.com",
+          data: "2019-4-1",
+          phoneNum: "18510782131"
+        },
+        {
+          name: "lifnanf",
+          email: "123@163.com",
+          data: "2019-4-1",
+          phoneNum: "18510782131"
+        },
+        {
+          name: "lfalkm",
+          email: "123@163.com",
+          data: "2019-4-1",
+          phoneNum: "18510782131"
+        }
+      ],
       search_value: ""
     };
   },
-  created() {
-    // this.getFriendsList();
-     console.log(this.friendsList)
+  mounted() {
+    this.getFriendsList();
+    console.log(this.friendsList);
+    window.addFriend_success=this.addFriend_success
   },
   methods: {
-    //获取好友列表
-    // getFriendsList() {
-
-    // },
+    // 获取好友列表
+    getFriendsList() {
+       $APP.getFriends()
+    },
+    confirm(){
+      //发送加好友请求
+      $APP.addFriend(this.search_value)
+    },
+    addFriend_success(){
+      //把相应信息追加到allfriendlist中
+      allFriends.push(json.parse($APP.getFriend(this.search_value))) //把获取特定的好友信息追加到AllfriendList中
+      
+    },
+    add() {
+      this.list_show = !this.list_show;
+      this.bt_show = !this.bt_show;
+    },
     filterData() {
       this.friendsList = this.allFriends.filter(friend => {
         return friend.name.indexOf(this.search_value) != -1;
@@ -72,7 +113,7 @@ export default {
     },
     cellClick(friend) {
       // console.log(friend);
-      this.$store.dispatch("setTargetUser", friend);
+      this.$store.commit({ type: "getTarget", Friend: friend });
       this.$router.push("/information");
     }
   },
@@ -83,7 +124,8 @@ export default {
   },
   components: {
     Header,
-    Cell
+    Cell,
+    Button
   }
 };
 </script>
@@ -99,7 +141,15 @@ export default {
   margin-top: 50px;
   overflow: auto;
 }
-
+.btn_wrap {
+  width:90%;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-top: 50px;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
 .search_wrap {
   background-color: #f1f1f1;
   padding: 8px;

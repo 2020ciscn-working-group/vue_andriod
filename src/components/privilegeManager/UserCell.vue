@@ -37,8 +37,8 @@ export default {
   flex: 1;
 }
 .cell-title img {
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
   vertical-align: middle;
   margin-right: 0.6rem;
 }
