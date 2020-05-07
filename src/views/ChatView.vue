@@ -67,7 +67,7 @@ export default {
         guest_id: this.targetUser.targetuid,
         message:this.msgValue,
         msg_type:100,
-        source:'self'
+        source:'self'  //这块的source为了区分消息是我发的还是对方发的，后面会去掉这个属性，直接以message的host_id和guest_id判断
       };
       // 本地客户端显示
       this.messageList.push(msgObj);
@@ -114,6 +114,7 @@ export default {
   outline: none;
   border: 1px solid #d9d9d9;
   border-radius: 4px;
+  font-size:15px;
 }
 .footer_wrap button {
   width: 20%;

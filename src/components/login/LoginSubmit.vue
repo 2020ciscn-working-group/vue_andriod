@@ -28,7 +28,7 @@ export default {
     Repass: {
       type: String
     },
-    Phonenum:{
+    phoneNum:{
       type:String
     }
   },
@@ -50,7 +50,7 @@ export default {
       $APP.login(this.Email,this.Pass) 
     },
     onRegister(){
-      $APP.signup(this.Email,this.FirstName+this.LastName,this.Pass,this.Phonenum)
+      $APP.signup(this.Email,this.FirstName+this.LastName,this.Pass,this.phoneNum)
     },
     signup_success(){
           this.$notify({
