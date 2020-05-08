@@ -28,6 +28,15 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+      record_receive(){
+
+      }
+  },
+  mounted(){
+    window.record_receive=this.record_receive   //被调用生成消息记录
+    
   }
 };
 </script>

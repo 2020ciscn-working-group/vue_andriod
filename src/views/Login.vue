@@ -41,9 +41,10 @@ export default {
 <style scoped>
 .login {
   width: 100%;
+  height:100%;
   color: white;
   font-size: 14px;
- 
+  background-color:#669999;
 
  
 

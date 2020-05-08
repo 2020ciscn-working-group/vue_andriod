@@ -1,7 +1,12 @@
 <template>
    <!-- 三槽标题 -->
-    <div>
-        <Header :title="title"  btn_icon="plus"/>
+    <div class="Mana">
+        <Header title= "授权管理"  btn_icon="plus"/>
+        <div class="otherLock">
+            <label>被授权门锁</label>
+            <hr/>
+        </div>
+        
     </div>
 </template>
 
@@ -11,19 +16,38 @@ export default {
   components:{Header},
   data(){
       return {
-        title:'授权管理',
+         
       }
   },
   
   methods:{
-     onBack() {
-      this.$emit('func1','Mana')
-    }
+      showMana(){
+
+      }
+  },
+  mounted(){
+    window.showMana=this.showMana
   }
 }
 </script>
 
 <style scoped>
-
+.Mana{
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-color:#F5F5F5;
+}
+.otherLock{
+ 
+  width: 100%;
+  /* height: calc(100% - 50px); */
+  margin-top: 50px;
+  overflow: auto;
+}
+.otherLock label{
+  font-size:20px;
+  margin:3px;
+}
 
 </style>

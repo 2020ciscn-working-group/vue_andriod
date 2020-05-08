@@ -4,8 +4,10 @@ import router from './router'
 import store from './store'
 import './assets/font/iconfont.css'
 import 'amfe-flexible'
-import {Tabbar,TabbarItem,Popup,Col,Row,Icon,NavBar,Notify,Button } from 'vant'
+import {Tabbar,TabbarItem,Popup,Col,Row,Icon,NavBar,Notify,Button,Checkbox, CheckboxGroup } from 'vant'
 
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
 Vue.use(NavBar);
 Vue.use(Icon);
 Vue.use(Col);

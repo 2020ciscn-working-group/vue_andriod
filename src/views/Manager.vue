@@ -25,12 +25,7 @@ export default {
       state1: 1,
       component: "Mana",
       active: 0,
-       tabbarData: [
-        { title: "微信", icon: "comment"},
-        { title: "通讯录", icon: "address-book" },
-        { title: "发现", icon: "compass" },
-        { title: "我", icon: "user"}
-      ]
+      
     };
   },
   methods: {

@@ -37,7 +37,7 @@ body {
   height: 100%;
 }
 body{
-  background-color:#7E7E7E;
+  background-color:#F5F5F5;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
