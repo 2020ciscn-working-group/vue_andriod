@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     onsendMessage() {   //发送消息
-      // $APP.sendMessage(this.msgValue,100,this.targetUser.targetuid)
+      $APP.sendMessage(this.msgValue,100,this.targetUser.targetuid)
       // 需要发送的消息对象
       const msgObj = {
         host_id:this.user.uid,
