@@ -53,7 +53,7 @@ export default {
   mounted() {
        //一上来先拉取消息
       
-       $APP.pushmessage(this.user.uid,this.targetUser.targetuid)
+       $APP.pullmessage(this.user.uid,this.targetUser.targetuid)
        console.log(this.targetUser)
        console.log(this.user)
        window.pullmessage_success=this.pullmessage_success //挂载拉取成功后的方法
@@ -75,7 +75,7 @@ export default {
       this.msgValue = "";
     },
     getMessage() {
-      $APP.pushmessage(this.user.uid,this.targetUser.targetuid)    
+      $APP.pullmessage(this.user.uid,this.targetUser.targetuid)    
     },
     pullmessage_success() { 
 

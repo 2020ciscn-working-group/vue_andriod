@@ -25,9 +25,9 @@ const mutations= {
         state.friend_uid_list=payload.user.friend_uid_list;
   },
   getTarget(state,payload){
-    state.target.targetuid=payload.Friend.email;
-    state.target.targetName=payload.Friend.name;
-    state.target.targetphoneNum=payload.Friend.phoneNum;
+    state.target.targetuid=payload.Friend.friend_uid;
+    state.target.targetName=payload.Friend.username;
+    state.target.targetphoneNum=payload.Friend.phnum;
   }
 }
 
