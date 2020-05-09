@@ -40,7 +40,7 @@ export default {
       msgValue: "",
       messageList: [],
       user:{
-        uid:this.$store.state.uid,
+        uid:this.$store.state.target.targetguestid,
         avatar:''
       },
       targetUser:this.$store.state.target
@@ -53,7 +53,7 @@ export default {
   mounted() {
        //一上来先拉取消息
       
-       $APP.pullmessage(this.user.uid,this.targetUser.targetuid)
+       getMessage()
        console.log(this.targetUser)
        console.log(this.user)
        window.pullmessage_success=this.pullmessage_success //挂载拉取成功后的方法

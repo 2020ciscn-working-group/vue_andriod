@@ -14,7 +14,8 @@ const state={
      target:{
      targetuid:'',
      targetName:'',
-     targetphoneNum:''
+     targetphoneNum:'',
+     targetguestid:''
      }
 }
 const mutations= {
@@ -28,6 +29,7 @@ const mutations= {
     state.target.targetuid=payload.Friend.friend_uid;
     state.target.targetName=payload.Friend.username;
     state.target.targetphoneNum=payload.Friend.phnum;
+    state.target.targetguestid=payload.Friend.guest_id;
   }
 }
 

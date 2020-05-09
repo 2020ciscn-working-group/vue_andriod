@@ -5,7 +5,7 @@
       <!-- 使用 title 插槽来自定义标题 -->
       <template #title>
         <span class="custom-title">单元格</span>
-        <van-tag type="danger">标签</van-tag>
+    
       </template>
     </van-cell>
 
