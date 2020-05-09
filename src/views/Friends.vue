@@ -44,7 +44,7 @@ export default {
         
       ],
       allFriends: [
-        
+
       ],
       search_value: ""
     };
@@ -58,7 +58,7 @@ export default {
   methods: {
     // 获取好友列表
     getFriendsList() {
-       $APP.getFriends()
+       allFriends.push(JSON.parse($APP.getFriends()))
     },
     confirm(){
       //发送加好友请求
@@ -67,7 +67,7 @@ export default {
     addFriend_success(str){
       //把相应信息追加到allfriendlist中
       console.log(str)
-      allFriends.push(json.parse($APP.getFriend(this.search_value))) //把获取特定的好友信息追加到AllfriendList中
+      allFriends.push(JSON.parse(str)) //把获取特定的好友信息追加到AllfriendList中
       
     },
     add() {
