@@ -49,16 +49,17 @@ export default {
       search_value: ""
     };
   },
-  mounted() {
+  created(){
     this.getFriendsList();
     this.friendsList=this.allFriends
-    console.log(this.friendsList);
-    window.addFriend_success=this.addFriend_success
+  },
+  mounted() {
+    window.addFriend_success=this.addFriend_success   
   },
   methods: {
     // 获取好友列表
     getFriendsList() {
-       this.allFriends.push(JSON.parse($APP.getFriends()))
+       this.allFriends=$APP.getFriends()
     },
     confirm(){
       //发送加好友请求
