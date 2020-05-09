@@ -97,8 +97,9 @@ export default {
       //发送加好友请求
       $APP.addFriend(this.search_value)
     },
-    addFriend_success(){
+    addFriend_success(str){
       //把相应信息追加到allfriendlist中
+      console.log(str)
       allFriends.push(json.parse($APP.getFriend(this.search_value))) //把获取特定的好友信息追加到AllfriendList中
       
     },
