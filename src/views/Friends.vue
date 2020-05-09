@@ -59,7 +59,7 @@ export default {
   methods: {
     // 获取好友列表
     getFriendsList() {
-       this.allFriends=$APP.getFriends()
+       this.allFriends=JSON.parse($APP.getFriends())
     },
     confirm(){
       //发送加好友请求
