@@ -41,50 +41,17 @@ export default {
       list_show: true, //好友列表是否显示，当加好友时不显示
       bt_show:false, //加好友时按钮显示
       friendsList: [
-        {
-          name: "lsafjlfa",
-          email: "123@163.com",
-          data: "2019-4-1",
-          phoneNum: "18510782131"
-        },
-        {
-          name: "lifnanf",
-          email: "123@163.com",
-          data: "2019-4-1",
-          phoneNum: "18510782131"
-        },
-        {
-          name: "lfalkm",
-          email: "123@163.com",
-          data: "2019-4-1",
-          phoneNum: "18510782131"
-        }
+        
       ],
       allFriends: [
-        {
-          name: "lsafjlfa",
-          email: "123@163.com",
-          data: "2019-4-1",
-          phoneNum: "18510782131"
-        },
-        {
-          name: "lifnanf",
-          email: "123@163.com",
-          data: "2019-4-1",
-          phoneNum: "18510782131"
-        },
-        {
-          name: "lfalkm",
-          email: "123@163.com",
-          data: "2019-4-1",
-          phoneNum: "18510782131"
-        }
+        
       ],
       search_value: ""
     };
   },
   mounted() {
     this.getFriendsList();
+    this.friendsList=this.allFriends
     console.log(this.friendsList);
     window.addFriend_success=this.addFriend_success
   },

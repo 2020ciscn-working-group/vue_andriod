@@ -3,7 +3,7 @@
     <div class="cell-title">
       <img :src="user.avatar" alt>
       <span v-show="count" class="badge">{{count}}</span>
-      <span>{{user.name}}</span>
+      <span>{{user.username}}</span>
     </div>
   </div>
 </template>

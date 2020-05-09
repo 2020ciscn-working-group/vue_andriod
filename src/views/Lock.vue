@@ -51,8 +51,8 @@ export default {
     console.log(this.result)  //后面与接口对接
     
     },
-    showLockList(){
-
+    showLockList(lock_str){
+           //显示传来的锁信息
     }
   },
   mounted(){

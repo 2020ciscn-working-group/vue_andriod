@@ -4,19 +4,18 @@ import router from './router'
 import store from './store'
 import './assets/font/iconfont.css'
 import 'amfe-flexible'
-import {Tabbar,TabbarItem,Popup,Col,Row,Icon,NavBar,Notify,Button,Checkbox, CheckboxGroup } from 'vant'
+import {Tabbar,TabbarItem,Popup,Icon,Notify,Button, Divider, Cell, CellGroup} from 'vant'
 
-Vue.use(Checkbox);
-Vue.use(CheckboxGroup);
-Vue.use(NavBar);
+Vue.use(Divider);
 Vue.use(Icon);
-Vue.use(Col);
-Vue.use(Row);
 Vue.use(Popup)
 Vue.use(Tabbar);
 Vue.use(TabbarItem);
 Vue.use(Button);
+Vue.use(Cell);
+Vue.use(CellGroup);
 Vue.use(Notify);
+
 
 
 Vue.config.productionTip = false
