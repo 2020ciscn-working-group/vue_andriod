@@ -52,7 +52,7 @@ export default {
 
   mounted() {
        //一上来先拉取消息
-      
+
       //  this.getMessage()
        console.log(this.targetUser)
        console.log(this.user.uid)
@@ -75,10 +75,10 @@ export default {
       this.msgValue = "";
     },
     getMessage() {
-      $APP.pullmessage(this.user.uid,this.targetUser.targetuid)    
+      $APP.pullmessage(this.targetUser.targetuid,this.user.uid)
     },
-    pullmessage_success() { 
-       console.log("拉取成功")    
+    pullmessage_success() {
+       console.log("拉取成功")
     }
   }
 };
@@ -141,7 +141,7 @@ export default {
 .left_msg,
 .right_msg {
   width: 100%;
-  
+
   display: flex;
   margin: 5px 0;
 }
