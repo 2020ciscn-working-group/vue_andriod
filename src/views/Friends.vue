@@ -41,10 +41,10 @@ export default {
       list_show: true, //好友列表是否显示，当加好友时不显示
       bt_show:false, //加好友时按钮显示
       friendsList: [
-        
+  
       ],
       allFriends: [
-
+        
       ],
       search_value: ""
     };

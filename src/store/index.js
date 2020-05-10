@@ -26,10 +26,10 @@ const mutations= {
         state.friend_uid_list=payload.user.friend_uid_list;
   },
   getTarget(state,payload){
-    state.target.targetuid=payload.Friend.friend_uid;
+    state.target.targetuid=payload.Friend.firend_uid;
     state.target.targetName=payload.Friend.username;
     state.target.targetphoneNum=payload.Friend.phnum;
-    state.target.targetguestid=payload.Friend.guest_id;
+    state.target.targetguestid=payload.Friend.Guestid;
   }
 }
 
