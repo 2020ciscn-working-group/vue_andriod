@@ -60,8 +60,8 @@ export default {
         })
     },
     signin_success(){
-          getuser();
-          sethost(); 
+          this.getuser();
+          this.sethost(); 
           console.log(this.$store.state.uid)
           this.$notify({
           message:'登录成功',
@@ -69,6 +69,7 @@ export default {
           duration: 1000
         })
         this.$router.push('/Manager')
+        console.log("登录后的uid"+this.$store.state.uid)
     },
      //保存登录状态到store中
      sethost(){

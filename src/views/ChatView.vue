@@ -53,7 +53,7 @@ export default {
   mounted() {
        //一上来先拉取消息
       
-       getMessage()
+      //  this.getMessage()
        console.log(this.targetUser)
        console.log(this.user)
        window.pullmessage_success=this.pullmessage_success //挂载拉取成功后的方法
@@ -78,7 +78,7 @@ export default {
       $APP.pullmessage(this.user.uid,this.targetUser.targetuid)    
     },
     pullmessage_success() { 
-
+       console.log("拉取成功")    
     }
   }
 };
