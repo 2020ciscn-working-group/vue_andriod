@@ -38,13 +38,12 @@ export default {
       state1: 1 ,//控制按钮执行的功能
       user:{
           uid:this.Email,
-          username:this.FirstName+this.LastName,
-          password:this.password,
+          username:this.FirstName+this.LastName,      
           phoneNum:this.phoneNum,
-          friend_uid_list:''
       }
     }
   },
+ 
   methods: {
     onLogin(){   
       $APP.login(this.Email,this.Pass) 
@@ -62,16 +61,19 @@ export default {
     signin_success(){
           this.getuser();
           this.sethost(); 
-          console.log(this.$store.state.uid)
           this.$notify({
           message:'登录成功',
           background:'green',
           duration: 1000
         })
         this.$router.push('/Manager')
-        console.log("登录后的uid"+this.$store.state.uid)
     },
-     //保存登录状态到store中
+    getuser(){
+      this.user.uid=this.Email,
+      this.user.username=this.FirstName+this.LastName,
+      this.user.phoneNum=this.phoneNum
+    },
+    //  保存登录状态到store中
      sethost(){
         this.$store.commit({
           type:'changestate',
@@ -79,16 +81,11 @@ export default {
         })
         
     } ,
-    getuser(){
-      this.user.uid=this.Email,
-      this.user.username=this.FirstName+this.LastName,
-      this.user.password=this.Pass,
-      this.user.phoneNum=this.phoneNum
-    }
   },
   mounted(){
     window.signup_success=this.signup_success
     window.signin_success=this.signin_success
+    
   }
 };
 </script>

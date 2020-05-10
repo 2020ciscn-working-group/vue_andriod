@@ -55,7 +55,7 @@ export default {
       
       //  this.getMessage()
        console.log(this.targetUser)
-       console.log(this.user)
+       console.log(this.user.uid)
        window.pullmessage_success=this.pullmessage_success //挂载拉取成功后的方法
   },
   methods: {
