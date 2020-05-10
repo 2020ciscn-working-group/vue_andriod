@@ -1,32 +1,23 @@
 <template>
   <div class="records">
     <Header title="出入记录" btn_icon="plus" />
-    <van-cell value="内容" is-link>
-      <!-- 使用 title 插槽来自定义标题 -->
-      <template #title>
-        <span class="custom-title">单元格</span>
-    
-      </template>
+    <div class="records_list">
+    <van-cell v-for="(record,index) in record_list" :key="index"  
+    :title="record_list[index].info+record_list[index].accsee+record_list[index].time" 
+     is-link  icon="location-o">
+     <template #right-icon>
+    <van-icon @click="close" name="close" style="line-height: inherit;" />
+   </template>
     </van-cell>
-
-    <van-cell title="单元格" icon="shop-o">
-      <!-- 使用 right-icon 插槽来自定义右侧图标 -->
-      <template #right-icon>
-        <van-icon name="search" style="line-height: inherit;" />
-      </template>
-    </van-cell>
+  </div>
   </div>
 </template>
 
 <script>
 import Header from "../components/privilegeManager/Header";
+
 export default {
   components: { Header },
-  props: {
-    title: {
-      type: String
-    }
-  },
   data() {
     return {
       record_list: [
@@ -110,7 +101,10 @@ export default {
   },
   methods: {
     record_receive(str) {
-      record_receive.push(json.parse(str).Auditexp.accexp.accreq); //把accreq追加到json数组中显示
+      record_receive.push(JSON.parse(str).Auditexp.accexp.accreq); //把accreq追加到json数组中显示
+    },
+    close(){
+      console.log("关闭")   //后面可以删除记录，需要配合,暂时不考虑
     }
   },
   mounted() {
@@ -125,7 +119,7 @@ export default {
   height: 100%;
   overflow: hidden;
 }
-.records span {
+.records_list {
   width: 100%;
   height: calc(100% - 100px);
   margin-top: 50px;

@@ -40,7 +40,7 @@ export default {
       msgValue: "",
       messageList: [],
       user:{
-        uid:this.$store.state.target.targetguestid,
+        uid:this.$store.state.uid,
         avatar:''
       },
       targetUser:this.$store.state.target
