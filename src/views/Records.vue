@@ -101,7 +101,8 @@ export default {
   },
   methods: {
     record_receive(str) {
-      record_receive.push(JSON.parse(str).Auditexp.accexp.accreq); //把accreq追加到json数组中显示
+      console.log(str) //看看传过来的字符串
+      record_list.push(JSON.parse(str).Auditexp.accexp.accreq); //把accreq追加到json数组中显示
     },
     close(){
       console.log("关闭")   //后面可以删除记录，需要配合,暂时不考虑
