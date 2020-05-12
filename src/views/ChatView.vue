@@ -57,16 +57,17 @@ export default {
        console.log(this.targetUser)
        console.log(this.user.uid)
        window.pullmessage_success=this.pullmessage_success //挂载拉取成功后的方法
+       window.chatItem_receieve=this.chatItem_receieve
   },
   methods: {
     onsendMessage() {   //发送消息
       $APP.sendMessage(this.msgValue,100,this.targetUser.targetuid)
       // 需要发送的消息对象
       const msgObj = {
-        host_id:this.user.uid,
-        guest_id: this.targetUser.targetuid,
+        // host_id:this.user.uid,
+        // guest_id: this.targetUser.targetuid,
         message:this.msgValue,
-        msg_type:100,
+        // msg_type:100,
         source:'self'  //这块的source为了区分消息是我发的还是对方发的，后面会去掉这个属性，直接以message的host_id和guest_id判断
       };
       // 本地客户端显示
@@ -79,6 +80,13 @@ export default {
     },
     pullmessage_success() { 
        console.log("拉取成功")    
+    },
+    chatItem_receieve(str){
+        const msg_item={
+          message:str,
+          source:'other'
+        }
+        this.messageList.push(msg_item)
     }
   }
 };
