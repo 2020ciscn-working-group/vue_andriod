@@ -2,7 +2,7 @@
   <div class="lock">
     <Header :is-left="true" title="选择申请门锁" btn_icon="ellipsis-h" />
     <div class="lock_list">
-      <van-panel
+      <van-panel class="hubCell"
         v-for="(hub,index) in hubList"
         :key="index"
         :title="hubList[index].desc"
@@ -27,8 +27,8 @@
             </van-cell>
           </div>
         </template>
-        <template #footer :style="{'display':'flex'}">
-          <van-button size="small" :style="{'margin-right':'200px'}">隐藏信息</van-button>
+        <template #footer :style="{'height':'20px'}">
+          <van-button size="middle" :style="{'margin-right':'200px'}">隐藏信息</van-button>
           <!-- <van-switch v-model="checked" active-color="#07c160" inactive-color="#ee0a24" @click="checked=hubList[index].uuid" /> -->
           <label :style="{color: 'black', 'font-size': '15px'}">选择</label><input type="radio"  v-model="radio" :value="hubList[index]" >
         </template>
@@ -62,42 +62,42 @@ export default {
       radio: "",
       radio2: "",
       hubList: [
-        // {
-        //   desc: "我是一号hub",
-        //   id: "sdfsdfgearf",
-        //   info: "dfhsedhsedrh",
-        //   locs: [
-        //     {
-        //       Hub_uuid: "qwqqweqweq1we",
-        //       Lock_id: 1,
-        //       acctype: 0,
-        //       desc: "xxx"
-        //     },
-        //     {
-        //       Hub_uuid: "qwqewqeeeq1we",
-        //       Lock_id: 2,
-        //       acctype: 3,
-        //       desc: "fajklfjl"
-        //     }
-        //   ],
-        //   uuid: "qwqqweqweq1we",
-        //   uuid_ow: "WAACDEFBBACA"
-        // },
-        // {
-        //   desc: "我是二号hub",
-        //   id: "sdfsdfgearf23",
-        //   info: "dfhsedhsedrh32",
-        //   locs: [
-        //     {
-        //       Hub_uuid: "qwqqweqweq1we",
-        //       Lock_id: 1,
-        //       acctype: 0,
-        //       desc: "xxx"
-        //     }
-        //   ],
-        //   uuid: "qwqqweqweq1we43243",
-        //   uuid_ow: "WAACDEFBBACA"
-        // }
+        {
+          desc: "我是一号hub",
+          id: "sdfsdfgearf",
+          info: "dfhsedhsedrh",
+          locs: [
+            {
+              Hub_uuid: "qwqqweqweq1we",
+              Lock_id: 1,
+              acctype: 0,
+              desc: "xxx"
+            },
+            {
+              Hub_uuid: "qwqewqeeeq1we",
+              Lock_id: 2,
+              acctype: 3,
+              desc: "fajklfjl"
+            }
+          ],
+          uuid: "qwqqweqweq1we",
+          uuid_ow: "WAACDEFBBACA"
+        },
+        {
+          desc: "我是二号hub",
+          id: "sdfsdfgearf23",
+          info: "dfhsedhsedrh32",
+          locs: [
+            {
+              Hub_uuid: "qwqqweqweq1we",
+              Lock_id: 1,
+              acctype: 0,
+              desc: "xxx"
+            }
+          ],
+          uuid: "qwqqweqweq1we43243",
+          uuid_ow: "WAACDEFBBACA"
+        }
       ]
     };
   },
@@ -142,16 +142,20 @@ export default {
 .lock {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  
+}
+.hubCell{
+  margin-bottom:10px;
+  /* border:1px,solid,black; */
 }
 .lock_list {
   width: 100%;
-  height: calc(100% - 155px);
+  height: calc(100% - 150px);
   margin-top: 50px;
   box-sizing: border-box;
-  padding: 16px 0;
+  /* padding: 16px 0; */
   background-color: #f1f1f1;
-  overflow: hidden;
+  overflow:scroll;
 }
 .privilege {
   font-size: 20px;
@@ -159,10 +163,11 @@ export default {
 .privilege .vanRadio {
   margin-right: 40px;
   margin-bottom: 3px;
-  margin-top: 3px;
 }
-.btn_wrapper {
-  box-sizing: border-box;
-  padding: 20px;
+.lock .bottom{
+  border-top:3px,solid,black;
+  position:fixed;
+  bottom:0; 
 }
+
 </style>
