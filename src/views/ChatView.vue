@@ -82,7 +82,7 @@ export default {
       this.msgValue = "";
     },
     getMessage() {
-      $APP.pullmessage(this.user.uid,this.targetUser.targetuid)    
+      $APP.pullmessage(this.targetUser.targetuid,this.user.uid)    
     },
     pullmessage_success() { 
        console.log("拉取成功")    

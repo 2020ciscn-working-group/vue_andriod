@@ -58,31 +58,31 @@ export default {
       radio: "",
       radio2: "",     
       hubList: [
-        // {
-        //   desc: "我是一号hub",
-        //   id: "sdfsdfgearf",
-        //   info: "dfhsedhsedrh",
-        //   locs: [
+        {
+          desc: "我是一号hub",
+          id: "sdfsdfgearf",
+          info: "dfhsedhsedrh",
+          locs: [
           
-        //   ],
-        //   uuid: "qwqqweqweq1we",
-        //   uuid_ow: "WAACDEFBBACA"
-        // },
-        //  {
-        //   desc: "我是二号hub",
-        //   id: "sdfsdfgearf23",
-        //   info: "dfhsedhsedrh32",
-        //   locs: [
-        //     {
-        //       Hub_uuid: "qwqqweqweq1we",
-        //       Lock_id: 1,
-        //       acctype: 0,
-        //       desc: "xxx"
-        //     }
-        //   ],
-        //   uuid: "qwqqweqweq1we43243",
-        //   uuid_ow: "WAACDEFBBACA"
-        // }
+          ],
+          uuid: "qwqqweqweq1we",
+          uuid_ow: "WAACDEFBBACA"
+        },
+         {
+          desc: "我是二号hub",
+          id: "sdfsdfgearf23",
+          info: "dfhsedhsedrh32",
+          locs: [
+            {
+              Hub_uuid: "qwqqweqweq1we",
+              Lock_id: 1,
+              acctype: 0,
+              desc: "xxx"
+            }
+          ],
+          uuid: "qwqqweqweq1we43243",
+          uuid_ow: "WAACDEFBBACA"
+        }
       ],
     };
   },
