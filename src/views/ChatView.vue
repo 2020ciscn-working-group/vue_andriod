@@ -1,9 +1,11 @@
 <template>
   <div class="chat">
     <Header v-if="targetUser" :is-left="true" :title="targetUser.targetName" btn_icon="ellipsis-h"/>
-    <van-cell class="switch" center title="保密通讯密钥交换申请" >
+    <van-cell  :style="{'height':'60px','margin-top':'30px'}" class="switch" center title="保密通讯密钥交换申请" >
       <template #right-icon>
-        <van-switch v-model="checked" size="24" @click="onNegoreq" />
+        <van-button color="linear-gradient(to right, #4bb0ff, #6149f6)"
+  >更换密钥</van-button
+>
       </template>
     </van-cell>
    

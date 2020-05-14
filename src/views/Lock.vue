@@ -2,7 +2,6 @@
   <div class="lock">
     <Header :is-left="true" title="选择申请门锁" btn_icon="ellipsis-h" />
     <div class="lock_list">
-
       <van-panel
         v-for="(hub,index) in hubList"
         :key="index"
@@ -16,19 +15,24 @@
             <van-cell :title="'hub_info'" :value="hubList[index].info" />
           </div>
           <div class="lockdesc">
-            <van-cell v-for="(lock,index1) in hub.locs"
+            <!-- <van-cell v-for="(lock,index1) in hub.locs"
              :key="index1" 
-             :title="hub.locs[index1].Lock_id" ><van-tag type="danger">{{hub.locs[index1].acctype}}</van-tag></van-cell>
-        
+            :title="hub.locs[index1].Lock_id" center :value="hub.locs[index1].desc" ><van-tag type="danger">{{hub.locs[index1].acctype}}</van-tag></van-cell>-->
+            <van-cell v-for="(lock,index1) in hub.locs" :key="index1"  :value="'描述:'+hub.locs[index1].desc" >
+              <!-- 使用 title 插槽来自定义标题 -->
+              <template #title>
+                <span class="custom-title" :style="{'margin-right':'20px'}">{{hub.locs[index1].Lock_id}}</span>
+                <van-tag round type="primary">{{hub.locs[index1].acctype}}</van-tag>
+              </template>
+            </van-cell>
           </div>
         </template>
         <template #footer :style="{'display':'flex'}">
-          <van-button size="small">隐藏</van-button>
+          <van-button size="small" :style="{'margin-right':'200px'}">隐藏信息</van-button>
           <!-- <van-switch v-model="checked" active-color="#07c160" inactive-color="#ee0a24" @click="checked=hubList[index].uuid" /> -->
-           <input type="radio" v-model="radio" :value="hubList[index]">
+          <label :style="{color: 'black', 'font-size': '15px'}">选择</label><input type="radio"  v-model="radio" :value="hubList[index]" >
         </template>
       </van-panel>
-
     </div>
 
     <div class="bottom">
@@ -56,19 +60,30 @@ export default {
   data() {
     return {
       radio: "",
-      radio2: "",     
+      radio2: "",
       hubList: [
         // {
         //   desc: "我是一号hub",
         //   id: "sdfsdfgearf",
         //   info: "dfhsedhsedrh",
         //   locs: [
-          
+        //     {
+        //       Hub_uuid: "qwqqweqweq1we",
+        //       Lock_id: 1,
+        //       acctype: 0,
+        //       desc: "xxx"
+        //     },
+        //     {
+        //       Hub_uuid: "qwqewqeeeq1we",
+        //       Lock_id: 2,
+        //       acctype: 3,
+        //       desc: "fajklfjl"
+        //     }
         //   ],
         //   uuid: "qwqqweqweq1we",
         //   uuid_ow: "WAACDEFBBACA"
         // },
-        //  {
+        // {
         //   desc: "我是二号hub",
         //   id: "sdfsdfgearf23",
         //   info: "dfhsedhsedrh32",
@@ -83,7 +98,7 @@ export default {
         //   uuid: "qwqqweqweq1we43243",
         //   uuid_ow: "WAACDEFBBACA"
         // }
-      ],
+      ]
     };
   },
   components: {
@@ -94,28 +109,31 @@ export default {
   methods: {
     commit() {
       console.log(this.radio.uuid);
-      console.log(parseInt(this.radio2))
+      console.log(parseInt(this.radio2));
       console.log(this.radio.info);
-      const json_string={
-          "accsee":parseInt(this.radio2),
-          "hubuuid":this.radio.uuid,
-          "info":this.radio.info
-      }
-      console.log("json测试"+JSON.stringify(json_string))
-      console.log(this.$store.state.target.targetuid)
-      $APP.accreq(JSON.stringify(json_string),this.$store.state.target.targetuid)  //提交申请
+      const json_string = {
+        accsee: parseInt(this.radio2),
+        hubuuid: this.radio.uuid,
+        info: this.radio.info
+      };
+      console.log("json测试" + JSON.stringify(json_string));
+      console.log(this.$store.state.target.targetuid);
+      $APP.accreq(
+        JSON.stringify(json_string),
+        this.$store.state.target.targetuid
+      ); //提交申请
     },
     change(str) {
       this.radio = str;
       console.log(this.radio);
     },
-    ongetHub(){
-      this.hubList=JSON.parse($APP.getHub())
+    ongetHub() {
+      this.hubList = JSON.parse($APP.getHub());
     }
-  },  
+  },
   mounted() {
     window.showLockList = this.showLockList;
-    this.ongetHub   //初始化门锁
+    this.ongetHub; //初始化门锁
   }
 };
 </script>
