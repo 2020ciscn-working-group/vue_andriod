@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import './assets/font/iconfont.css'
 import 'amfe-flexible'
-import {Tabbar,TabbarItem,Popup,Icon,Notify,Button, Divider, Cell, CellGroup,SwipeCell,RadioGroup, Radio} from 'vant'
+import {Tabbar,TabbarItem,Popup,Icon,Notify,Button, Divider, Cell, CellGroup,SwipeCell,RadioGroup,Radio,Switch,Panel,Tag} from 'vant'
 
 Vue.use(Divider);
 Vue.use(Icon);
@@ -17,7 +17,9 @@ Vue.use(CellGroup);
 Vue.use(SwipeCell);
 Vue.use(RadioGroup);
 Vue.use(Radio);
-
+Vue.use(Switch);
+Vue.use(Panel);
+Vue.use(Tag);
 Vue.use(Notify);
 
 

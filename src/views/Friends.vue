@@ -1,6 +1,7 @@
 <template>
   <div class="address_book">
     <Header title="通讯录" btn_icon="user-plus" @rightClick="add" />
+    
     <div class="container">
       <!-- 上面 搜索框 -->
       <div class="search_wrap">
@@ -24,9 +25,8 @@
           <span>{{friendsList.length}}位联系人</span>
         </div>
       </div>
-      
     </div>
-    <Button class="btn_wrap" @click="confirm" v-show ="bt_show">发送请求</Button>
+    <Button class="btn_wrap" @click="confirm" v-show="bt_show">发送请求</Button>
   </div>
 </template>
 <script>
@@ -39,36 +39,45 @@ export default {
   data() {
     return {
       list_show: true, //好友列表是否显示，当加好友时不显示
-      bt_show:false, //加好友时按钮显示
+      bt_show: false, //加好友时按钮显示
       friendsList: [
-        //  {"Guestid":"91CC1C5E50C581DB","firend_uid":"t1","phnum":"1234","username":"zz"}
+        // {
+        //   Guestid: "91CC1C5E50C581DB",
+        //   firend_uid: "t1",
+        //   phnum: "1234",
+        //   username: "zz"
+        // }
       ],
       allFriends: [
-        // {"Guestid":"91CC1C5E50C581DB","firend_uid":"t1","phnum":"1234","username":"zz"}
+        // {
+        //   Guestid: "91CC1C5E50C581DB",
+        //   firend_uid: "t1",
+        //   phnum: "1234",
+        //   username: "zz"
+        // }
       ],
       search_value: ""
     };
   },
-  created(){
+  created() {
     this.getFriendsList();
-    this.friendsList=this.allFriends
+    this.friendsList = this.allFriends;
   },
   mounted() {
-    window.addFriend_success=this.addFriend_success   
+    window.addFriend_success = this.addFriend_success;
   },
   methods: {
     // 获取好友列表
     getFriendsList() {
-       this.allFriends=JSON.parse($APP.getFriends())
+      this.allFriends = JSON.parse($APP.getFriends());
     },
-    confirm(){
+    confirm() {
       //发送加好友请求
-      $APP.addFriend(this.search_value)
+      $APP.addFriend(this.search_value);
     },
-    addFriend_success(str){
+    addFriend_success(str) {
       //把相应信息追加到allfriendlist中
-      this.allFriends.push(JSON.parse(str)) //把获取特定的好友信息追加到AllfriendList中
-      
+      this.allFriends.push(JSON.parse(str)); //把获取特定的好友信息追加到AllfriendList中
     },
     add() {
       this.list_show = !this.list_show;
@@ -110,7 +119,7 @@ export default {
   overflow: auto;
 }
 .btn_wrap {
-  width:90%;
+  width: 90%;
   box-sizing: border-box;
   padding: 20px;
   margin-top: 50px;

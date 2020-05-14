@@ -1,7 +1,12 @@
 <template>
   <div class="chat">
     <Header v-if="targetUser" :is-left="true" :title="targetUser.targetName" btn_icon="ellipsis-h"/>
-
+    <van-cell class="switch" center title="保密通讯密钥交换申请" >
+      <template #right-icon>
+        <van-switch v-model="checked" size="24" @click="onNegoreq" />
+      </template>
+    </van-cell>
+   
     <div class="container">
       <!-- 聊天内容 -->
       <div
@@ -38,6 +43,7 @@ export default {
   data() {
     return {
       msgValue: "",
+      checked:'', //是否加密交换
       messageList: [],
       user:{
         uid:this.$store.state.uid,
@@ -87,6 +93,9 @@ export default {
           source:'other'
         }
         this.messageList.push(msg_item)
+    },
+    onNegoreq(){
+      $APP.negoreq(this.targetUser.targetuid)
     }
   }
 };
@@ -97,14 +106,24 @@ export default {
   height: 100%;
   overflow: hidden;
 }
+.head{
+  height:90px;
+}
 .container {
   width: 100%;
-  height: calc(100% - 100px);
+  height: calc(100% - 140px);
   box-sizing: border-box;
   background-color: #f1f1f1;
   margin-top: 50px;
   padding: 8px;
   overflow-y: scroll;
+}
+.switch{
+  position:absolute;
+  height: 30px;
+  margin-top:8px;
+  width:100%;
+  top:50px;
 }
 .footer_wrap {
   width: 100%;
