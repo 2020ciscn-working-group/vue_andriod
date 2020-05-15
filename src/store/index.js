@@ -16,7 +16,10 @@ const state={
      targetName:'',
      targetphoneNum:'',
      targetguestid:''
-     }
+     },
+
+//登录还是注册
+    state1:1
 }
 const mutations= {
   changestate(state,payload){
@@ -30,6 +33,9 @@ const mutations= {
     state.target.targetName=payload.Friend.username;
     state.target.targetphoneNum=payload.Friend.phnum;
     state.target.targetguestid=payload.Friend.Guestid;
+  },
+  getState(state,payload){
+    state.state1=payload.state
   }
 }
 

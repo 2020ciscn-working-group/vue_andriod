@@ -55,7 +55,7 @@ export default new Router({
       component:()=>import('../views/ChatView')
     },
     {
-      path:'lock',
+      path:'/lock',
       name:'lock',
       component:()=>import('../views/Lock')
     }

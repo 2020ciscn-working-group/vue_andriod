@@ -5,6 +5,8 @@
     <li><span href="#">Sign in</span></li>
   </ul>
 </template>
+
+
 <style scoped>
 .login_tabs {
   display: flex;

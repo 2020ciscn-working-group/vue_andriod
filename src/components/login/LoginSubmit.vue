@@ -1,7 +1,7 @@
 <template>
   <span class="login_button">
-    <input type="button" value="Sign Up"  @click="onRegister()"  @mouseenter="state1=$attrs.state"/>
-    <input type="button" value="Sign In" @click="onLogin()" @mouseenter="state1=$attrs.state" />
+    <input type="button" value="Sign Up" :disabled="signup_disable"  @click="onRegister()" />
+    <input type="button" value="Sign In" :disabled="signin_disable"  @click="onLogin()" />
     
 
     
@@ -34,16 +34,31 @@ export default {
   },
   data() {
     return {
-      list: null,
-      state1: 1 ,//控制按钮执行的功能
+      state1: this.$store.state.state1 ,//控制按钮执行的功能
       user:{
           uid:this.Email,
           username:this.FirstName+this.LastName,      
           phoneNum:this.phoneNum,
-      }
+      },
+      signin_disable:false,
+      signup_disable:true
     }
   },
- 
+  computed:{
+    isFollow () {
+    return this.$store.state.state1;　　//需要监听的数据
+  }
+
+  },
+  watch:{
+    isFollow(val){
+        this.state1=val
+    },
+    state1(val){
+      this.signin_disable=(val==1)?false:true,
+      this.signup_disable=(val==2)?false:true
+    },
+  },
   methods: {
     onLogin(){   
       $APP.login(this.Email,this.Pass) 
@@ -81,6 +96,11 @@ export default {
         })
         
     } ,
+    show(){
+      console.log(this.state1)
+      console.log(this.signin_disable)
+      console.log(this.signup_disable)
+    }
   },
   mounted(){
     window.signup_success=this.signup_success

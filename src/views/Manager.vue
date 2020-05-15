@@ -22,7 +22,7 @@ import Friends from "./Friends";
 export default {
   data() {
     return {
-      state1: 1,
+     
       component: "Mana",
       active: 0,
       

@@ -33,7 +33,14 @@ export default {
   },
   methods: {
     switchState () {
-      this.state = this.state === 1 ? 2 : 1
+      this.state = this.state === 1 ? 2 : 1,
+      this.getstate()
+    },
+    getstate(){
+    this.$store.commit({
+          type:'getState',
+          state:this.state
+        })
     }
   }
 }
