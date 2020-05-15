@@ -73,7 +73,7 @@ export default {
         //   uuid_ow: "WAACDEFBBACA"
         // }
       ]
-    };
+    }
   },
   components: {
     Header,
@@ -93,6 +93,7 @@ export default {
       };
       console.log("json测试" + JSON.stringify(json_string));
       console.log(this.$store.state.target.targetuid);
+    
       $APP.accreq(
         JSON.stringify(json_string),
         this.$store.state.target.targetuid
@@ -106,8 +107,10 @@ export default {
     }
   },
   mounted() {
-    window.showLockList = this.showLockList;
-    this.ongetHub; //初始化门锁
+    window.showLockList = this.showLockList;   
+  },
+  created(){
+    this.ongetHub(); //初始化门锁
   }
 };
 </script>
