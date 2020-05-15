@@ -100,7 +100,10 @@ export default {
       ); //提交申请
     },
     ongetHub() {
-      this.hubList=JSON.parse($APP.getHub(this.$store.state.target.targetuid));
+      var Hub_json=$APP.getHub(this.$store.state.target.targetuid)
+      if(Hub_json != null)
+      this.hubList=JSON.parse(Hub_json);
+      
     },
     select(obj){
       this.radio=obj
