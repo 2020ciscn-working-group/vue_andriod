@@ -1,11 +1,12 @@
 <template>
   <div class="chat">
-    <Header v-if="targetUser" :is-left="true" :title="targetUser.targetName" btn_icon="ellipsis-h"/>
-    <van-cell  :style="{'height':'60px','margin-top':'30px'}" class="switch" center title="保密通讯密钥交换申请" >
+    
+    <Header v-if="targetUser" :is-left="true" :title="targetUser.targetName" />
+    <van-cell  :style="{'height':'50px','margin-top':'10px'}" class="switch" center title="保密通讯密钥交换申请" >
       <template #right-icon>
         <van-button @click="onNegoreq()" color="linear-gradient(to right, #4bb0ff, #6149f6)"
   >更换密钥</van-button
->
+>  
       </template>
     </van-cell>
    
@@ -116,16 +117,14 @@ export default {
   height: calc(100% - 140px);
   box-sizing: border-box;
   background-color: #f1f1f1;
-  margin-top: 50px;
+  margin-top: 105px;
   padding: 8px;
   overflow-y: scroll;
 }
 .switch{
   position:absolute;
-  height: 30px;
-  margin-top:8px;
   width:100%;
-  top:50px;
+  top:40px;
 }
 .footer_wrap {
   width: 100%;
