@@ -48,7 +48,7 @@ export default {
   data() {
     return {
       msgValue: "",
-      checked: "", //是否加密交换
+      
       messageList: [],
       user: {
         uid: this.$store.state.uid,
