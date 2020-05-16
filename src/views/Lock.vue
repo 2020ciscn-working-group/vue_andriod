@@ -94,10 +94,17 @@ export default {
       console.log("json测试" + JSON.stringify(json_string));
       console.log(this.$store.state.target.targetuid);
     
+      if(this.radio2&&this.radio)    
       $APP.accreq(
         JSON.stringify(json_string),
         this.$store.state.target.targetuid
       ); //提交申请
+      else
+       this.$notify({
+          message:'请检查是否有未选项',
+          background:'red',
+          duration: 1000
+        })
     },
     ongetHub() {
       var Hub_json=$APP.getHub(this.$store.state.target.targetuid)
