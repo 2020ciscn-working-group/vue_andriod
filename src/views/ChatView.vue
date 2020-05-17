@@ -122,8 +122,7 @@ export default {
     .catch(() => { //点击取消按钮后的调用
           $APP.denide(str,this.$store.state.target.targetuid)
 })
-
-    }
+}
   }
 };
 </script>
