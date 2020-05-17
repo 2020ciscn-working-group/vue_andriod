@@ -17,7 +17,7 @@
         :title="manaList[index].accexp.accreq.info+manaList[index].accexp.accreq.accsee"
       />
       <template #right>
-        <van-button square type="danger" text="删除" @click="del()" />
+        <van-button square type="danger" text="删除" @click="del(manaList[index1].uuid)" />
 
       </template>
     </van-swipe-cell>
