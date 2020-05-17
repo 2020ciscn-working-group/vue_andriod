@@ -36,42 +36,42 @@ export default {
       radio2: "",
       status:'',
       hubList: [
-        {
-          desc: "我是一号hub",
-          id: "sdfsdfgearf",
-          info: "dfhsedhsedrh",
-          locs: [
-            {
-              Hub_uuid: "qwqqweqweq1we",
-              Lock_id: 1,
-              acctype: 0,
-              desc: "xxx"
-            },
-            {
-              Hub_uuid: "qwqewqeeeq1we",
-              Lock_id: 2,
-              acctype: 3,
-              desc: "fajklfjl"
-            }
-          ],
-          uuid: "qwqqweqweq1we",
-          uuid_ow: "WAACDEFBBACA"
-        },
-        {
-          desc: "我是二号hub",
-          id: "sdfsdfgearf23",
-          info: "dfhsedhsedrh32",
-          locs: [
-            {
-              Hub_uuid: "qwqqweqweq1we",
-              Lock_id: 1,
-              acctype: 0,
-              desc: "xxx"
-            }
-          ],
-          uuid: "qwqqweqweq1we43243",
-          uuid_ow: "WAACDEFBBACA"
-        }
+        // {
+        //   desc: "我是一号hub",
+        //   id: "sdfsdfgearf",
+        //   info: "dfhsedhsedrh",
+        //   locs: [
+        //     {
+        //       Hub_uuid: "qwqqweqweq1we",
+        //       Lock_id: 1,
+        //       acctype: 0,
+        //       desc: "xxx"
+        //     },
+        //     {
+        //       Hub_uuid: "qwqewqeeeq1we",
+        //       Lock_id: 2,
+        //       acctype: 3,
+        //       desc: "fajklfjl"
+        //     }
+        //   ],
+        //   uuid: "qwqqweqweq1we",
+        //   uuid_ow: "WAACDEFBBACA"
+        // },
+        // {
+        //   desc: "我是二号hub",
+        //   id: "sdfsdfgearf23",
+        //   info: "dfhsedhsedrh32",
+        //   locs: [
+        //     {
+        //       Hub_uuid: "qwqqweqweq1we",
+        //       Lock_id: 1,
+        //       acctype: 0,
+        //       desc: "xxx"
+        //     }
+        //   ],
+        //   uuid: "qwqqweqweq1we43243",
+        //   uuid_ow: "WAACDEFBBACA"
+        // }
       ]
     }
   },
