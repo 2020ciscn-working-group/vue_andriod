@@ -17,7 +17,7 @@
         :title="manaList[index].accexp.accreq.info+manaList[index].accexp.accreq.accsee"
       />
       <template #right>
-        <van-button square type="danger" text="删除" @click="del(manaList[index].uuid)" />
+        <van-button square type="danger" text="删除" @click="del(manaList[index].uuid,index)" />
 
       </template>
     </van-swipe-cell>
@@ -37,7 +37,7 @@
         :title="manaList[index1].accexp.accreq.info+manaList[index1].accexp.accreq.accsee"
       />
       <template #right>
-        <van-button square type="danger" text="删除" @click="del(manaList[index1].uuid)" />
+        <van-button square type="danger" text="删除" @click="del(manaList[index1].uuid,index1)" />
         <!-- <van-button square type="primary" text="收藏" /> -->
       </template>
     </van-swipe-cell>
@@ -56,8 +56,10 @@ export default {
     };
   },
   methods: {
-    del(tockenuuid) {
-       $APP.deleteTocken(tockenuuid)
+    del(tockenuuid,index) {
+       $APP.deleteTocken(tockenuuid);
+       this.manaList.pop(index);
+       this.uid_list.pop(index);
     },
     ongetTockens(){
       
