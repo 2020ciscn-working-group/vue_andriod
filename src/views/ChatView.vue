@@ -37,7 +37,16 @@
       <input type="text" v-model="msgValue" />
       <button :disabled="msgValue == ''" @click="onsendMessage">发送</button>
       <button @click="getMessage">拉取</button>
-    </div> 
+    </div>
+    <van-dialog v-model="show" title="收到授权申请" 
+     show-cancel-button confirmButtonText="同意" 
+     confirmButtonColor="green" 
+     cancelButtonColor="red" 
+     cancelButtonText="拒绝" 
+     :message="information" 
+     @confirm="Onconfirm" @cancel="Oncancel">
+
+     </van-dialog>
   </div>
 </template>
 
@@ -48,8 +57,10 @@ export default {
   data() {
     return {
       msgValue: "",
-      
+      show:false,
       messageList: [],
+      json_str:'',
+      information:'',
       user: {
         uid: this.$store.state.uid,
         avatar: ""
@@ -104,24 +115,41 @@ export default {
     onNegoreq() {
       $APP.negoreq(this.targetUser.targetuid);
     },
-    accreq(str){
-        console.log(str)
-        this.accreq_json=JSON.parse(str)
-        this.$dialog.alert({
-         confirmButtonText:"同意",
-         showCancelButton:true,
-         confirmButtonColor:'green',
-         cancelButtonColor:'red',
-         cancelButtonText:"拒绝",
-         title: "接到授权申请", //加上标题
-         message:JSON.stringify('accsee: '+this.accreq_json.accsee)+'\n'+JSON.stringify('hubuuid: '+this.accreq_json.hubuuid)+'\n'+JSON.stringify('info: '+this.accreq_json.info)+'\n'+JSON.stringify('time: '+this.accreq_json.info)//改变弹出框的内容
-})
-    .then(() => { //点击确认按钮后的调用
-         $APP.acceptaccreq(str,this.$store.state.target.targetuid)
-})
-    .catch(() => { //点击取消按钮后的调用
-          $APP.denide(str,this.$store.state.target.targetuid)
-})
+    Onconfirm(){
+      console.log("调用了确认事件")
+      $APP.acceptaccreq(this.json_str,this.$store.state.target.targetuid)
+    },
+    Oncancel(){
+      console.log("调用了拒绝事件")
+       $APP.denide(this.json_str,this.$store.state.target.targetuid)
+       
+    },
+    accreq(str){    
+      this.json_str=str
+      var accreq_json=JSON.parse(str)
+      this.information=JSON.stringify('accsee: '+this.accreq_json.accsee)+'\n'+JSON.stringify('hubuuid: '+this.accreq_json.hubuuid)+'\n'+JSON.stringify('info: '+this.accreq_json.info)+'\n'+JSON.stringify('time: '+this.accreq_json.info)
+      this.show=true
+//         console.log(str)
+//         this.accreq_json=JSON.parse(str)
+//         this.$dialog.confirm({
+//          confirmButtonText:"同意",
+//          showCancelButton:true,
+//          confirmButtonColor:'green',
+//          cancelButtonColor:'red',
+//          cancelButtonText:"拒绝",
+//          title: "接到授权申请", //加上标题
+//          message:JSON.stringify('accsee: '+this.accreq_json.accsee)+'\n'+JSON.stringify('hubuuid: '+this.accreq_json.hubuuid)+'\n'+JSON.stringify('info: '+this.accreq_json.info)+'\n'+JSON.stringify('time: '+this.accreq_json.info)//改变弹出框的内容
+// })
+//     .then(() => { //点击确认按钮后的调用
+//          console.log("调用接受事件")
+//          
+         
+// })
+//     .catch(() => { //点击取消按钮后的调用
+//            console.log("调用拒绝事件")
+//          
+          
+// })
 }
   }
 };
