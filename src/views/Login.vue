@@ -1,10 +1,11 @@
 <template>
-  <div
+  
+  <div 
     class="login"
     :class="{ login__signin: isSignIn, login__signup: isSignUp }"
   >
     
-    <login-tabs class="tab" @click.native="switchState" />
+    <login-tabs :style="{'padding-top':'50px'}" class="tab" @click.native="switchState" />
     <login-form  v-bind:state="state"/>
 
   </div>
@@ -47,9 +48,10 @@ export default {
 </script >
 <style scoped>
 .login {
+ 
   width: 100%;
   height:100%;
-  color: white;
+
   font-size: 14px;
   background-color:#669999;
 

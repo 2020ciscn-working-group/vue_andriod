@@ -4,7 +4,7 @@
     <div class="container">
       <InfoCell :userInfo="targetUser"/>
       <div class="btn_wrapper">
-        <Button @click="$router.push({name:'chat',params:{user: targetUser}})">发消息</Button>
+        <Button :style="{'margin-bottom':'10px'}" @click="$router.push({name:'chat',params:{user: targetUser}})">发消息</Button>
         <Button @click="$router.push({name:'lock',params:{user: targetUser}})">申请门锁</Button>
       </div>
     </div>

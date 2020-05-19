@@ -44,6 +44,7 @@ export default {
   border-radius: 2px;
   background-color: white;
   box-shadow: 0 1px 1px #0066d0;
+  
 }
 .login_textfield label {
   margin-right: 10px;

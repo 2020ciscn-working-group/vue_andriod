@@ -1,7 +1,7 @@
 <template>
   <div class="cell-wrapper" @click="$emit('click')">
     <div class="cell-title">
-      <img :src="user.avatar" alt>
+      <img src="@/assets/pic/friends.png" />
       <span v-show="count" class="badge">{{count}}</span>
       <span>{{user.username}}</span>
     </div>
@@ -11,7 +11,7 @@
 <script>
 export default {
   name: "cell-cell",
-  props: {
+  props: {  
     user: Object,
     count: Number
   }
@@ -37,8 +37,8 @@ export default {
   flex: 1;
 }
 .cell-title img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
   vertical-align: middle;
   margin-right: 0.6rem;
 }

@@ -22,13 +22,13 @@
       >
         <!-- 别人的内容 -->
         <div class="left_msg" v-if="item.source == 'other'">
-          <img :src="targetUser.avatar" alt />
+          <img src="@/assets/pic/friends.png" alt />
           <span>{{item.message}}</span>
         </div>
         <!-- 我的内容 -->
         <div class="right_msg" v-if="item.source=='self'">
           <span>{{item.message}}</span>
-          <img :src="user.avatar" alt />
+          <img src="@/assets/pic/me.png" alt />
         </div>
       </div>
     </div>
@@ -85,7 +85,7 @@ export default {
   methods: {
     onsendMessage() {
       //发送消息
-      $APP.sendMessage(this.msgValue, 100, this.targetUser.targetuid);
+      // $APP.sendMessage(this.msgValue, 100, this.targetUser.targetuid);
       // 需要发送的消息对象
       const msgObj = {
         // host_id:this.user.uid,
@@ -222,7 +222,7 @@ export default {
   width: 100%;
 
   display: flex;
-  margin: 5px 0;
+  margin: 10px 0;
 }
 .content_wrap img {
   width: 1rem;

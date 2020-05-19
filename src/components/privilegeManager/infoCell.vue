@@ -1,16 +1,18 @@
 <template>
   <div class="cell-wrapper" v-if="userInfo">
     <div class="cell-title">
-      <img :src="userInfo.avatar" />
-      <span>{{userInfo.targetName}}</span>
+      <img src="@/assets/pic/friends.png" />
+      <span :style="{'font-size':'20px'}">{{userInfo.targetName}}</span>
     </div>
     <div class="cell-email">
-      <img :src="userInfo.avatar" />
-      <span>{{"邮箱:  "+userInfo.targetuid}}</span>
+      <!-- <img :src="userInfo.avatar" />
+      <span>{{"邮箱:  "+userInfo.targetuid}}</span> -->
+      <van-cell :style="{'padding-left':'0px'}" title="邮箱" icon="envelop-o" :value="userInfo.targetuid" />
     </div>
     <div class='cell-phoneNum'> 
-      <img :src="userInfo.avatar"  />
-      <span>{{"电话:  "+userInfo.targetphoneNum}}</span>
+      <!-- <img :src="userInfo.avatar"  />
+      <span>{{"电话:  "+userInfo.targetphoneNum}}</span> -->
+      <van-cell :style="{'padding-left':'0px'}" title="电话" icon="phone-o" :value="userInfo.targetphoneNum"/>
     </div>
   </div>
 </template>
@@ -48,13 +50,15 @@ export default {
 }
 .cell-email {
   flex: 1;
+  
 }
 .cell-phoneNum {
   flex: 1;
+  
 }
 .cell-title img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
   vertical-align: middle;
   margin-right: 0.6rem;
 }

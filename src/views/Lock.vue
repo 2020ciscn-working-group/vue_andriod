@@ -1,13 +1,13 @@
 <template>
   <div class="lock">
     <Header :is-left="true" title="选择申请门锁" btn_icon="ellipsis-h" />
-
+    <div class="container">
     <div class="hublist">
-    <hubCell v-for="(hub,index) in hubList" :key="index" :hub="hub" :radio="radio" @func="select"></hubCell>
+      <hubCell v-for="(hub,index) in hubList" :key="index" :hub="hub" :radio="radio" @func="select"></hubCell>
     </div>
 
     <div class="bottom">
-      <van-radio-group class="privilege" v-model="radio2" direction="horizontal">
+      <!-- <van-radio-group class="privilege" v-model="radio2" direction="horizontal">
         <span
           :style="{color: 'blue', 'font-size': '20px' ,'margin-right': '10%','border':'1px solid black'}"
         >申请权限:</span>
@@ -16,11 +16,15 @@
         <van-radio class="vanRadio" name="3">权限3</van-radio>
         <van-radio class="vanRadio" name="4">权限4</van-radio>
         <van-radio class="vanRadio" name="5">权限5</van-radio>
-      </van-radio-group>
+      </van-radio-group>-->
+      <van-dropdown-menu  direction="up" class="select">
+        <van-dropdown-item  v-model="radio2" :options="option" />
+
+      </van-dropdown-menu>
       <Button @click="commit()">提交申请</Button>
     </div>
   </div>
- 
+  </div>
 </template>
 
 <script>
@@ -33,8 +37,16 @@ export default {
   data() {
     return {
       radio: {},
-      radio2: "",
-      status:'',
+      radio2: 0,
+      option: [
+        { text: '请选择权限', value: 0 },
+        { text: '权限1', value: 1 },
+        { text: '权限2', value: 2 },
+        { text: '权限3', value: 3 },
+        { text: '权限4', value: 4 },
+        { text: '权限5', value: 5 },
+      ],
+      status: "",
       hubList: [
         // {
         //   desc: "我是一号hub",
@@ -73,7 +85,7 @@ export default {
         //   uuid_ow: "WAACDEFBBACA"
         // }
       ]
-    }
+    };
   },
   components: {
     Header,
@@ -84,7 +96,7 @@ export default {
   methods: {
     commit() {
       console.log(this.radio.uuid);
-      console.log(parseInt(this.radio2));
+      console.log(this.radio2);
       console.log(this.radio.info);
       const json_string = {
         accsee: parseInt(this.radio2),
@@ -93,33 +105,33 @@ export default {
       };
       console.log("json测试" + JSON.stringify(json_string));
       console.log(this.$store.state.target.targetuid);
-    
-      if(this.radio2&&this.radio)    
-      $APP.accreq(
-        JSON.stringify(json_string),
-        this.$store.state.target.targetuid
-      ); //提交申请
+
+      if (this.radio2 && this.radio)
+        $APP.accreq(
+          JSON.stringify(json_string),
+          this.$store.state.target.targetuid
+        );
+      //提交申请
       else
-       this.$notify({
-          message:'请检查是否有未选项',
-          background:'red',
+        this.$notify({
+          message: "请检查是否有未选项",
+          background: "red",
           duration: 1000
-        })
+        });
     },
     ongetHub() {
-      var Hub_json=$APP.getHub(this.$store.state.target.targetuid)
-      if(Hub_json != null)
-      this.hubList=JSON.parse(Hub_json);      
+      var Hub_json = $APP.getHub(this.$store.state.target.targetuid);
+      if (Hub_json != null) this.hubList = JSON.parse(Hub_json);
     },
-    
-    select(obj){
-      this.radio=obj
+
+    select(obj) {
+      this.radio = obj;
     }
   },
   mounted() {
-    window.showLockList = this.showLockList;   
+    window.showLockList = this.showLockList;
   },
-  created(){
+  created() {
     this.ongetHub(); //初始化门锁
   }
 };
@@ -129,10 +141,9 @@ export default {
 .lock {
   width: 100%;
   height: 100%;
-  
 }
-.hubCell{
-  margin-bottom:10px;
+.hubCell {
+  margin-bottom: 10px;
   /* border:1px,solid,black; */
 }
 .hublist {
@@ -142,8 +153,7 @@ export default {
   box-sizing: border-box;
   /* padding: 16px 0; */
   background-color: #f1f1f1;
-   overflow:scroll;
- 
+  overflow: scroll;
 }
 .privilege {
   font-size: 20px;
@@ -152,10 +162,12 @@ export default {
   margin-right: 40px;
   margin-bottom: 3px;
 }
-.lock .bottom{
-  border-top:3px,solid,black;
-  position:fixed;
-  bottom:0; 
+.lock .container .bottom {
+ 
+  width:100%;
+  
+  position: fixed;
+  bottom: 0;
 }
 
 </style>

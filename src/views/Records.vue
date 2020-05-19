@@ -1,6 +1,6 @@
 <template>
   <div class="records">
-    <Header title="出入记录" btn_icon="plus" />
+    <Header title="出入记录"/>
     <div class="records_list">
     <van-cell v-for="(record,index) in record_list" :key="index"  
     :title="record_list[index].info+record_list[index].accsee+record_list[index].time" 

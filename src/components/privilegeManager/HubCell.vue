@@ -23,7 +23,7 @@
         <template #footer :style="{'height':'15px'}" >
           <!-- <van-button size="middle" :style="{'margin-right':'200px'}">隐藏信息</van-button> -->
           
-          <label :style="{color: 'black', 'font-size': '15px','margin-left':'278px'}">选择</label><input type="radio" v-model="radio" @click="$emit('func',hub)" :value="hub" >
+          <label :style="{color: 'black', 'font-size': '15px','margin-left':'82%'}">选择</label><input type="radio" v-model="radio" @click="$emit('func',hub)" :value="hub" >
         </template>
       </van-panel>
      </div>

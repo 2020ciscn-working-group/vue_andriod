@@ -93,6 +93,7 @@ export default {
 }
 .login_text .login_textfield {
   border-radius: 0;
+  
 }
 .login_text .login_textfield:first-child {
   border-radius: 2px 0 0 2px;

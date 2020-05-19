@@ -6,7 +6,7 @@
         <van-tabbar-item icon="manager">授权管理</van-tabbar-item>
         <van-tabbar-item icon="todo-list">出入记录</van-tabbar-item>
         <van-tabbar-item icon="friends">好友</van-tabbar-item>
-        <van-tabbar-item icon="chat" badge="9">消息</van-tabbar-item>
+        <van-tabbar-item icon="chat" >消息</van-tabbar-item>
       </van-tabbar>
      </div>
 </template>
