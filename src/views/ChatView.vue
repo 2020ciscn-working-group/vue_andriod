@@ -22,13 +22,13 @@
       >
         <!-- 别人的内容 -->
         <div class="left_msg" v-if="item.source == 'other'">
-          <img src="@/assets/pic/friends.png" alt />
+          <img :src="imgsrc2" alt />
           <span>{{item.message}}</span>
         </div>
         <!-- 我的内容 -->
         <div class="right_msg" v-if="item.source=='self'">
           <span>{{item.message}}</span>
-          <img src="@/assets/pic/me.png" alt />
+          <img :src="imgsrc1" alt />
         </div>
       </div>
     </div>
@@ -58,8 +58,30 @@ export default {
     return {
       msgValue: "",
       show:false,
-      messageList: [],
-      json_str:'',
+      messageList: [
+      //   {message:'你好 张三',
+      //   source:'self'      
+      // },
+      // {
+      //   message:'你好',
+      //   source:'other'
+      // },
+      // {message:'今天5点我在办公楼等你',
+      //   source:'self'      
+      // },
+      ],
+      accreq_json:{
+  //  "accsee": 5,
+  //  "hubuuid": "ACCDCBAEFFAAV",
+  //  "info": "北京市通州区西集镇北苑街道2号楼",
+  //  "infolen": 18,
+  //  "pub": [-9, -39, 20, 22, 33, 19, 116, -11, 93, 101, 81, -124, 44, 98, -78, 1, 82, 59, -37, 57, -18, 108, 93, -41, -93, -25, -109, 23, -99, 48, -32, -27, -34, -120, -41, -34, -58, 12, -82, 113, 57, -82, 68, 92, -84, -128, -107, 86, 0, -62, -82, 80, 47, -101, 63, -50, -58, 62, 40, 55, 100, 82, 64, -58],
+  //  "signdata": [-66, -110, -75, 33, 37, -92, -104, 54, 101, -50, 109, -19, -117, 103, 6, 83, -77, 93, -83, 85, -59, -65, -53, 60, 72, 21, 106, -47, -33, -40, 29, 114, -32, 79, 47, 4, 69, 24, 108, -21, 74, 16, -89, -121, 116, -106, -103, 58, 108, -114, 111, -112, -63, -70, 1, 16, 17, -89, -3, 26, -54, 38, -83, -17],
+  //  "signdatalen": 64,
+  //  "time":"2020-03-26 :05:16:47"
+  },
+      imgsrc1:require('../assets/pic/me.png'),
+      imgsrc2:require('../assets/pic/friends.png'),
       information:'',
       user: {
         uid: this.$store.state.uid,
@@ -125,9 +147,8 @@ export default {
        
     },
     accreq(str){    
-      this.json_str=str
-      var accreq_json=JSON.parse(str)
-      this.information=JSON.stringify('accsee: '+this.accreq_json.accsee)+'\n'+JSON.stringify('hubuuid: '+this.accreq_json.hubuuid)+'\n'+JSON.stringify('info: '+this.accreq_json.info)+'\n'+JSON.stringify('time: '+this.accreq_json.info)
+      this.accreq_json=JSON.parse(str)
+      this.information=JSON.stringify('accsee: '+this.accreq_json.accsee)+'\n'+JSON.stringify('hubuuid: '+this.accreq_json.hubuuid)+'\n'+JSON.stringify('info: '+this.accreq_json.info)+'\n'+JSON.stringify('time: '+this.accreq_json.time)
       this.show=true
 //         console.log(str)
 //         this.accreq_json=JSON.parse(str)

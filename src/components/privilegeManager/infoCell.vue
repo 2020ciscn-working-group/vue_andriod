@@ -1,7 +1,7 @@
 <template>
   <div class="cell-wrapper" v-if="userInfo">
     <div class="cell-title">
-      <img src="@/assets/pic/friends.png" />
+      <img :src="imgsrc" />
       <span :style="{'font-size':'20px'}">{{userInfo.targetName}}</span>
     </div>
     <div class="cell-email">
@@ -22,6 +22,11 @@ export default {
   name: "info-cell",
   props: {
     userInfo: Object
+  },
+   data(){
+    return{
+      imgsrc:require('../../assets/pic/friends.png')
+    }
   },
   created() {
     console.log(this.userInfo);

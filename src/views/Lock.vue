@@ -56,14 +56,14 @@ export default {
         //     {
         //       Hub_uuid: "qwqqweqweq1we",
         //       Lock_id: 1,
-        //       acctype: 0,
-        //       desc: "xxx"
+        //       acctype: 2,
+        //       desc: "北京市通州区梨园镇玉桥街道3号楼201"
         //     },
         //     {
         //       Hub_uuid: "qwqewqeeeq1we",
         //       Lock_id: 2,
         //       acctype: 3,
-        //       desc: "fajklfjl"
+        //       desc: "北京市通州区梨园镇玉桥街道1号楼102"
         //     }
         //   ],
         //   uuid: "qwqqweqweq1we",
@@ -77,8 +77,8 @@ export default {
         //     {
         //       Hub_uuid: "qwqqweqweq1we",
         //       Lock_id: 1,
-        //       acctype: 0,
-        //       desc: "xxx"
+        //       acctype: 4,
+        //       desc: "北京市通州区永顺镇中仓街道街道5号楼302"
         //     }
         //   ],
         //   uuid: "qwqqweqweq1we43243",
@@ -165,7 +165,7 @@ export default {
 .lock .container .bottom {
  
   width:100%;
-  
+  border-top:1px solid #66FFFF;
   position: fixed;
   bottom: 0;
 }

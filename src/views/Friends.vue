@@ -41,19 +41,31 @@ export default {
       list_show: true, //好友列表是否显示，当加好友时不显示
       bt_show: false, //加好友时按钮显示
       friendsList: [
-        {
-          // Guestid: "91CC1C5E50C581DB",
-          // firend_uid: "t1",
-          // phnum: "1234",
-          // username: "zz"
-        }
+        // {
+        //   Guestid: "91CC1C5E50C581DB",
+        //   firend_uid: "zhangsan@163.com",
+        //   phnum: "18518235673",
+        //   username: "张三"
+        // },
+        //       {
+        //   Guestid: "91CC1C5E50C581DB",
+        //   firend_uid: "t1",
+        //   phnum: "1234",
+        //   username: "李四"
+        // }
       ],
       allFriends: [
         // {
         //   Guestid: "91CC1C5E50C581DB",
         //   firend_uid: "t1",
         //   phnum: "1234",
-        //   username: "zz"
+        //   username: "张三"
+        // },
+        //   {
+        //   Guestid: "91CC1C5E50C581DB",
+        //   firend_uid: "t1",
+        //   phnum: "1234",
+        //   username: "李四"
         // }
       ],
       search_value: ""
@@ -87,7 +99,7 @@ export default {
     },
     filterData() {
       this.friendsList = this.allFriends.filter(friend => {
-        return friend.name.indexOf(this.search_value) != -1;
+        return friend.username.indexOf(this.search_value) != -1;
       });
     },
     cellClick(friend) {

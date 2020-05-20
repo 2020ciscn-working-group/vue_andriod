@@ -1,7 +1,7 @@
 <template>
   <div class="cell-wrapper" @click="$emit('click')">
     <div class="cell-title">
-      <img src="@/assets/pic/friends.png" />
+      <img :src="imgsrc" />
       <span v-show="count" class="badge">{{count}}</span>
       <span>{{user.username}}</span>
     </div>
@@ -14,6 +14,11 @@ export default {
   props: {  
     user: Object,
     count: Number
+  },
+  data(){
+    return{
+      imgsrc:require('../../assets/pic/friends.png')
+    }
   }
 };
 </script>
@@ -37,8 +42,8 @@ export default {
   flex: 1;
 }
 .cell-title img {
-  width: 1.2rem;
-  height: 1.2rem;
+  width: 1.0rem;
+  height: 1.0rem;
   vertical-align: middle;
   margin-right: 0.6rem;
 }
